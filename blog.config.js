@@ -65,7 +65,7 @@ const BLOG = {
     PREVIEW_TAG_COUNT: 16, // 首页最多展示的标签数量，0为不限制
 
     // 樱花飘落特效
-    SAKURA: process.env.NEXT_PUBLIC_SAKURA || true, // 开关
+    SAKURA: process.env.NEXT_PUBLIC_SAKURA || false, // 开关
 
 
     // 鼠标点击烟花特效
