@@ -26,6 +26,7 @@ const BLOG = {
     CONTACT_TELEGRAM: '', // 你的telegram 地址 例如 https://t.me/tangly_1024
     CONTACT_LINKEDIN: '', // 你的linkedIn 首页
 
+
     // 网站默认使用PingFangSC及NotoSansSC，
     // 如需自定义字体，请将CUSTOM_FONT改为 true，并将CUSTOM_FONT_URL改为你的字体CSS地址，同时在CUSTOM_FONT_SANS与CUSTOM_FONT_SERIF中指定你的font-family
     CUSTOM_FONT: process.env.NEXT_PUBLIC_CUSTOM_FONT || false, // 是否使用自定义字体
@@ -33,6 +34,7 @@ const BLOG = {
     CUSTOM_FONT_URL: ['https://npm.elemecdn.com/lxgw-wenkai-webfont@1.6.0/style.css'], // 自定义字体的CSS
     CUSTOM_FONT_SANS: ['LXGW WenKai'], // 自定义无衬线字体
     CUSTOM_FONT_SERIF: ['LXGW WenKai'], // 自定义衬线字体
+
 
     // 侧栏布局 是否反转(左变右,右变左) 已支持主题: hexo next medium fukasawa example
     LAYOUT_SIDEBAR_REVERSE: false,
@@ -47,6 +49,7 @@ const BLOG = {
 
     // PrismJs CDN
     PRISM_JS_PATH: 'https://npm.elemecdn.com/prismjs@1.29.0/components/',
+    CODE_LINE_NUMBERS: process.env.NEXT_PUBLIC_CODE_LINE_NUMBERS || 'false',
 
     BACKGROUND_LIGHT: '#eeeeee', // use hex value, don't forget '#' e.g #fffefc
     BACKGROUND_DARK: '#000000', // use hex value, don't forget '#'
@@ -61,7 +64,6 @@ const BLOG = {
     POST_RECOMMEND_COUNT: 6, // 推荐文章数量
     POSTS_PER_PAGE: 12, // post counts per page
     POSTS_SORT_BY: 'date', // 排序方式 'date'按时间,'notion'由notion控制
-
 
 
     PREVIEW_CATEGORY_COUNT: 16, // 首页最多展示的分类数量，0为不限制
@@ -90,6 +92,7 @@ const BLOG = {
     MUSIC_PLAYER_VISIBLE: process.env.NEXT_PUBLIC_MUSIC_PLAYER_VISIBLE || true, // 是否在左下角显示播放和切换，如果使用播放器，打开自动播放再隐藏，就会以类似背景音乐的方式播放，无法取消和暂停
     MUSIC_PLAYER_AUTO_PLAY: process.env.NEXT_PUBLIC_MUSIC_PLAYER_AUTO_PLAY || true, // 是否自动播放，不过自动播放时常不生效（移动设备不支持自动播放）
     MUSIC_PLAYER_SHOW_LRC: process.env.NEXT_PUBLIC_MUSIC_PLAYER_SHOW_LRC || false, // 是否展示歌词（前提是有配置歌词路径，对 meting 无效）
+    MUSIC_PLAYER_CDN_URL: process.env.NEXT_PUBLIC_MUSIC_PLAYER_CDN_URL || 'https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js',
     MUSIC_PLAYER_ORDER: 'list', // 默认播放方式，顺序 list，随机 random
     MUSIC_PLAYER_AUDIO_LIST: [ // 示例音乐列表。除了以下配置外，还可配置歌词，具体配置项看此文档 https://aplayer.js.org/#/zh-Hans/
         {
@@ -108,6 +111,7 @@ const BLOG = {
     MUSIC_PLAYER_METING: process.env.NEXT_PUBLIC_MUSIC_PLAYER_METING || false, // 是否要开启 MetingJS，从平台获取歌单。会覆盖自定义的 MUSIC_PLAYER_AUDIO_LIST，更多配置信息：https://github.com/metowolf/MetingJS
     MUSIC_PLAYER_METING_SERVER: process.env.NEXT_PUBLIC_MUSIC_PLAYER_METING_SERVER || 'netease', // 音乐平台，[netease, tencent, kugou, xiami, baidu]
     MUSIC_PLAYER_METING_ID: process.env.NEXT_PUBLIC_MUSIC_PLAYER_METING_ID || '60198', // 对应歌单的 id
+    MUSIC_PLAYER_METING_LRC_TYPE: process.env.NEXT_PUBLIC_MUSIC_PLAYER_METING_LRC_TYPE || '1', // 可选值： 3 | 1 | 0（0：禁用 lrc 歌词，1：lrc 格式的字符串，3：lrc 文件 url）
 
     // ----> 评论互动 可同时开启多个支持 WALINE VALINE GISCUS CUSDIS UTTERRANCES GITALK
 
@@ -185,6 +189,7 @@ const BLOG = {
         tags: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TAGS || 'tags',
         icon: process.env.NEXT_PUBLIC_NOTION_PROPERTY_ICON || 'icon'
     },
+
 
     // 作废配置
     AVATAR: '/avatar.png', // 作者头像，被notion中的ICON覆盖。若无ICON则取public目录下的avatar.png
