@@ -14,6 +14,7 @@ const BLOG = {
 
 
 
+
     AUTHOR: 'LiuXin', // 作者
     BIO: '一个普通的干饭人🍚', // 作者简介
     LINK: 'https://xinlwork.cn', // 网站地址
@@ -36,8 +37,13 @@ const BLOG = {
     CUSTOM_FONT_SERIF: ['LXGW WenKai'], // 自定义衬线字体
 
 
+    // 自定义外部脚本，外部样式
+    CUSTOM_EXTERNAL_JS: [''], // e.g. ['http://xx.com/script.js','http://xx.com/script.js']
+    CUSTOM_EXTERNAL_CSS: [''], // e.g. ['http://xx.com/style.css','http://xx.com/style.css']
+
     // 侧栏布局 是否反转(左变右,右变左) 已支持主题: hexo next medium fukasawa example
     LAYOUT_SIDEBAR_REVERSE: false,
+
 
     // 一个小插件展示你的facebook fan page~ @see https://tw.andys.pro/article/add-facebook-fanpage-notionnext
     FACEBOOK_PAGE_TITLE: process.env.NEXT_PUBLIC_FACEBOOK_PAGE_TITLE || null, // 邊欄 Facebook Page widget 的標題欄，填''則無標題欄 e.g FACEBOOK 粉絲團'
@@ -45,15 +51,21 @@ const BLOG = {
     FACEBOOK_PAGE_ID: process.env.NEXT_PUBLIC_FACEBOOK_PAGE_ID || '', // Facebook Page ID 來啟用 messenger 聊天功能
     FACEBOOK_APP_ID: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID || '', // Facebook App ID 來啟用 messenger 聊天功能 获取: https://developers.facebook.com/
 
+
     BEI_AN: process.env.NEXT_PUBLIC_BEI_AN || '', // 备案号 闽ICP备XXXXXXX
 
-    // PrismJs CDN
-    PRISM_JS_PATH: 'https://npm.elemecdn.com/prismjs@1.29.0/components/',
-    CODE_LINE_NUMBERS: process.env.NEXT_PUBLIC_CODE_LINE_NUMBERS || 'false',
 
     BACKGROUND_LIGHT: '#eeeeee', // use hex value, don't forget '#' e.g #fffefc
     BACKGROUND_DARK: '#000000', // use hex value, don't forget '#'
     SUB_PATH: '', // leave this empty unless you want to deploy in a folder
+    // PrismJs CDN
+    PRISM_JS_PATH: 'https://npm.elemecdn.com/prismjs@1.29.0/components/',
+    CODE_LINE_NUMBERS: process.env.NEXT_PUBLIC_CODE_LINE_NUMBERS || 'false',
+
+
+
+
+
 
     POST_URL_PREFIX: process.env.NEXT_PUBLIC_POST_URL_PREFIX || 'article', // POST类型文章的默认路径前缀，例如默认POST类型的路径是  /article/[slug]
     // 如果此项配置为 '' 空， 则文章将没有前缀路径，使用场景： 希望文章前缀路径为 /post 的情况 支持多级
@@ -69,13 +81,17 @@ const BLOG = {
     PREVIEW_CATEGORY_COUNT: 16, // 首页最多展示的分类数量，0为不限制
     PREVIEW_TAG_COUNT: 16, // 首页最多展示的标签数量，0为不限制
 
-    // 星空雨特效 黑夜模式才会生效
-    STARRY_SKY: process.env.NEXT_PUBLIC_STARRY_SKY || false, // 开关
 
-    // 悬浮挂件
-    WIDGET_PET: process.env.NEXT_PUBLIC_WIDGET_PET || true, // 是否显示宠物挂件
-    WIDGET_PET_LINK: 'https://cdn.jsdelivr.net/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json', // 挂件模型地址 @see https://github.com/xiazeyu/live2d-widget-models
-    WIDGET_PET_SWITCH_THEME: true, // 点击宠物挂件切换博客主题
+
+
+    // 漂浮线段特效
+    NEST: process.env.NEXT_PUBLIC_NEST || false, // 开关
+
+    // 动态彩带特效
+    FLUTTERINGRIBBON: process.env.NEXT_PUBLIC_FLUTTERINGRIBBON || false, // 开关
+    // 静态彩带特效
+    RIBBON: process.env.NEXT_PUBLIC_RIBBON || false, // 开关
+
 
 
     // 樱花飘落特效
@@ -86,6 +102,19 @@ const BLOG = {
     FIREWORKS: process.env.NEXT_PUBLIC_FIREWORKS || false, // 开关
     // 烟花色彩，感谢 https://github.com/Vixcity 提交的色彩
     FIREWORKS_COLOR: ['255, 20, 97', '24, 255, 146', '90, 135, 255', '251, 243, 140'],
+    // 星空雨特效 黑夜模式才会生效
+    STARRY_SKY: process.env.NEXT_PUBLIC_STARRY_SKY || false, // 开关
+
+    // 悬浮挂件
+    WIDGET_PET: process.env.NEXT_PUBLIC_WIDGET_PET || true, // 是否显示宠物挂件
+    WIDGET_PET_LINK: 'https://cdn.jsdelivr.net/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json', // 挂件模型地址 @see https://github.com/xiazeyu/live2d-widget-models
+    WIDGET_PET_SWITCH_THEME: true, // 点击宠物挂件切换博客主题
+
+
+
+
+
+
 
     // 音乐播放插件
     MUSIC_PLAYER: process.env.NEXT_PUBLIC_MUSIC_PLAYER || false, // 是否使用音乐播放插件
