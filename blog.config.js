@@ -61,7 +61,7 @@ const BLOG = {
     CUSTOM_EXTERNAL_CSS: [''], // e.g. ['http://xx.com/style.css','http://xx.com/style.css']
 
     // 侧栏布局 是否反转(左变右,右变左) 已支持主题: hexo next medium fukasawa example
-    LAYOUT_SIDEBAR_REVERSE: true,
+    LAYOUT_SIDEBAR_REVERSE: false,
 
 
     // 一个小插件展示你的facebook fan page~ @see https://tw.andys.pro/article/add-facebook-fanpage-notionnext
@@ -75,11 +75,11 @@ const BLOG = {
 
 
     // PrismJs 代码相关
-  PRISM_JS_AUTO_LOADER: 'https://npm.elemecdn.com/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js',
-  PRISM_JS_PATH: 'https://npm.elemecdn.com/prismjs@1.29.0/components/',
-  PRISM_THEME_PATH: 'https://npm.elemecdn.com/prism-themes/themes/prism-a11y-dark.min.css', // 代码样式主题 更多参考 https://github.com/PrismJS/prism-themes
-  CODE_MAC_BAR: true, // 代码左上角显示mac的红黄绿图标
-  CODE_LINE_NUMBERS: process.env.NEXT_PUBLIC_CODE_LINE_NUMBERS || 'false', // 是否显示行号
+    PRISM_JS_AUTO_LOADER: 'https://npm.elemecdn.com/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js',
+    PRISM_JS_PATH: 'https://npm.elemecdn.com/prismjs@1.29.0/components/',
+    PRISM_THEME_PATH: 'https://npm.elemecdn.com/prism-themes/themes/prism-a11y-dark.min.css', // 代码样式主题 更多参考 https://github.com/PrismJS/prism-themes
+    CODE_MAC_BAR: true, // 代码左上角显示mac的红黄绿图标
+    CODE_LINE_NUMBERS: process.env.NEXT_PUBLIC_CODE_LINE_NUMBERS || 'false', // 是否显示行号
 
 
 
