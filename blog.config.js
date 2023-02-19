@@ -1,6 +1,7 @@
 // 注: process.env.XX是Vercel的环境变量，配置方式见：https://docs.tangly1024.com/zh/features/personality
 const BLOG = {
 
+
     // Important page_id！！！Duplicate Template from  https://www.notion.so/tanghh/02ab3b8678004aa69e9e415905ef32a5
     NOTION_PAGE_ID: process.env.NOTION_PAGE_ID || '02ab3b8678004aa69e9e415905ef32a5',
     PSEUDO_STATIC: false, // 伪静态路径，开启后所有文章URL都以 .html 结尾。
@@ -175,6 +176,9 @@ const BLOG = {
     // twikoo
     COMMENT_TWIKOO_ENV_ID: process.env.NEXT_PUBLIC_COMMENT_ENV_ID || '', // TWIKOO地址 腾讯云环境填 envId；Vercel 环境域名地址（https://xxx.vercel.app)
 
+
+
+
     // utterance
     COMMENT_UTTERRANCES_REPO: process.env.NEXT_PUBLIC_COMMENT_UTTERRANCES_REPO || '', // 你的代码仓库名， 例如我是 'tangly1024/NotionNext'； 更多文档参考 https://utteranc.es/
 
@@ -236,9 +240,14 @@ const BLOG = {
     // 自定义配置notion数据库字段名
     NOTION_PROPERTY_NAME: {
         password: process.env.NEXT_PUBLIC_NOTION_PROPERTY_PASSWORD || 'password',
-        type: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE || 'type',
-        title: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TITLE || 'title',
+        type: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE || 'type', // 文章类型，
+        type_post: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_POST || 'Post', // 当type文章类型与此值相同时，为博文。
+        type_page: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_PAGE || 'Page', // 当type文章类型与此值相同时，为单页。
+        type_notice: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TYPE_NOTICE || 'Notice', // 当type文章类型与此值相同时，为公告。
+        title: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TITLE || 'title', // 文章标题
         status: process.env.NEXT_PUBLIC_NOTION_PROPERTY_STATUS || 'status',
+        status_publish: process.env.NEXT_PUBLIC_NOTION_PROPERTY_STATUS_PUBLISH || 'Published', // 当status状态值与此相同时为发布，可以为中文
+        status_invisible: process.env.NEXT_PUBLIC_NOTION_PROPERTY_STATUS_INVISIBLE || 'Invisible', // 当status状态值与此相同时为隐藏发布，可以为中文 ， 除此之外其他页面状态不会显示在博客上
         summary: process.env.NEXT_PUBLIC_NOTION_PROPERTY_SUMMARY || 'summary',
         slug: process.env.NEXT_PUBLIC_NOTION_PROPERTY_SLUG || 'slug',
         category: process.env.NEXT_PUBLIC_NOTION_PROPERTY_CATEGORY || 'category',
@@ -246,7 +255,6 @@ const BLOG = {
         tags: process.env.NEXT_PUBLIC_NOTION_PROPERTY_TAGS || 'tags',
         icon: process.env.NEXT_PUBLIC_NOTION_PROPERTY_ICON || 'icon'
     },
-
 
     // 作废配置
     AVATAR: '/avatar.png', // 作者头像，被notion中的ICON覆盖。若无ICON则取public目录下的avatar.png
@@ -260,6 +268,7 @@ const BLOG = {
     ENABLE_CACHE: process.env.ENABLE_CACHE || false, // 开启缓存会将Notion数据缓存在内存中，通常在开发调试中使用，正式部署开启此功能意义不大。
     isProd: process.env.VERCEL_ENV === 'production', // distinguish between development and production environment (ref: https://vercel.com/docs/environment-variables#system-environment-variables)  isProd: process.env.VERCEL_ENV === 'production' // distinguish between development and production environment (ref: https://vercel.com/docs/environment-variables#system-environment-variables)
     VERSION: process.env.NEXT_PUBLIC_VERSION // 版本号
+
 }
 
 module.exports = BLOG
