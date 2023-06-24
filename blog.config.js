@@ -16,7 +16,6 @@ const BLOG = {
 
     CUSTOM_MENU: process.env.NEXT_PUBLIC_CUSTOM_MENU || false, // 支持Menu 类型，从3.12.0版本起，各主题将逐步支持灵活的二级菜单配置，替代了原来的Page类型，此配置是试验功能、默认关闭。
 
-
     AUTHOR: process.env.NEXT_PUBLIC_AUTHOR || 'LiuXin', // 您的昵称 例如 tangly1024
     BIO: process.env.NEXT_PUBLIC_BIO || '一个普通的干饭人🍚', // 作者简介
     LINK: process.env.NEXT_PUBLIC_LINK || 'https://xinlwork.cn', // 网站地址
@@ -74,9 +73,20 @@ const BLOG = {
     ],
     FONT_AWESOME: process.env.NEXT_PUBLIC_FONT_AWESOME_PATH || '/css/all.min.css', // font-awesome 字体图标地址、默认读取本地; 可选 https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/css/all.min.css
 
+    // 自定义外部脚本，外部样式
+    CUSTOM_EXTERNAL_JS: [''], // e.g. ['http://xx.com/script.js','http://xx.com/script.js']
+    CUSTOM_EXTERNAL_CSS: [''], // e.g. ['http://xx.com/style.css','http://xx.com/style.css']
 
+    // 侧栏布局 是否反转(左变右,右变左) 已支持主题: hexo next medium fukasawa example
+    LAYOUT_SIDEBAR_REVERSE: false,
 
+    // 一个小插件展示你的facebook fan page~ @see https://tw.andys.pro/article/add-facebook-fanpage-notionnext
+    FACEBOOK_PAGE_TITLE: process.env.NEXT_PUBLIC_FACEBOOK_PAGE_TITLE || null, // 邊欄 Facebook Page widget 的標題欄，填''則無標題欄 e.g FACEBOOK 粉絲團'
+    FACEBOOK_PAGE: process.env.NEXT_PUBLIC_FACEBOOK_PAGE || null, // Facebook Page 的連結 e.g https://www.facebook.com/tw.andys.pro
+    FACEBOOK_PAGE_ID: process.env.NEXT_PUBLIC_FACEBOOK_PAGE_ID || '', // Facebook Page ID 來啟用 messenger 聊天功能
+    FACEBOOK_APP_ID: process.env.NEXT_PUBLIC_FACEBOOK_APP_ID || '', // Facebook App ID 來啟用 messenger 聊天功能 获取: https://developers.facebook.com/
 
+    BEI_AN: process.env.NEXT_PUBLIC_BEI_AN || '', // 备案号 闽ICP备XXXXXXX
 
     // PrismJs 代码相关
     PRISM_JS_AUTO_LOADER: 'https://npm.elemecdn.com/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js',
@@ -109,6 +119,8 @@ const BLOG = {
     POSTS_PER_PAGE: 12, // post counts per page
     POSTS_SORT_BY: process.env.NEXT_PUBLIC_POST_SORT_BY || 'date', // 排序方式 'date'按时间,'notion'由notion控制
 
+    PREVIEW_CATEGORY_COUNT: 16, // 首页最多展示的分类数量，0为不限制
+    PREVIEW_TAG_COUNT: 16, // 首页最多展示的标签数量，0为不限制
 
     // 鼠标点击烟花特效
     FIREWORKS: process.env.NEXT_PUBLIC_FIREWORKS || false, // 开关
@@ -120,27 +132,19 @@ const BLOG = {
         '251, 243, 140'
     ],
 
+    // 樱花飘落特效
+    SAKURA: process.env.NEXT_PUBLIC_SAKURA || false, // 开关
 
+    // 漂浮线段特效
+    NEST: process.env.NEXT_PUBLIC_NEST || false, // 开关
 
+    // 动态彩带特效
+    FLUTTERINGRIBBON: process.env.NEXT_PUBLIC_FLUTTERINGRIBBON || false, // 开关
+    // 静态彩带特效
+    RIBBON: process.env.NEXT_PUBLIC_RIBBON || false, // 开关
 
-    // 网站字体
-    FONT_STYLE: process.env.NEXT_PUBLIC_FONT_STYLE || 'font-serif', // ['font-serif','font-sans'] 两种可选，分别是衬线和无衬线: 参考 https://www.jianshu.com/p/55e410bd2115
-    FONT_URL: [ // 字体CSS 例如 https://npm.elemecdn.com/lxgw-wenkai-webfont@1.6.0/style.css
-        'https://fonts.googleapis.com/css?family=Bitter&display=swap',
-        'https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500&display=swap',
-        'https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500&display=swap'
-    ],
-    FONT_SANS: [ // 无衬线字体 例如'LXGW WenKai'
-        'Bitter', '"PingFang SC"', '-apple-system', 'BlinkMacSystemFont', '"Hiragino Sans GB"',
-        '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Segoe UI"', '"Noto Sans SC"', 'HarmonyOS_Regular',
-        '"Microsoft YaHei"', '"Helvetica Neue"', 'Helvetica', '"Source Han Sans SC"',
-        'Arial', 'sans-serif', '"Apple Color Emoji"'
-    ],
-    FONT_SERIF: [ // 衬线字体 例如'LXGW WenKai'
-        'Bitter', '"Noto Serif SC"', 'SimSun', '"Times New Roman"', 'Times', 'serif',
-        '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Apple Color Emoji"'
-    ],
-    FONT_AWESOME: '/css/all.min.css', // font-awesome 字体图标地址
+    // 星空雨特效 黑夜模式才会生效
+    STARRY_SKY: process.env.NEXT_PUBLIC_STARRY_SKY || false, // 开关
 
     // 悬浮挂件
     WIDGET_PET: process.env.NEXT_PUBLIC_WIDGET_PET || true, // 是否显示宠物挂件
@@ -176,11 +180,7 @@ const BLOG = {
     MUSIC_PLAYER_METING_ID: process.env.NEXT_PUBLIC_MUSIC_PLAYER_METING_ID || '60198', // 对应歌单的 id
     MUSIC_PLAYER_METING_LRC_TYPE: process.env.NEXT_PUBLIC_MUSIC_PLAYER_METING_LRC_TYPE || '1', // 可选值： 3 | 1 | 0（0：禁用 lrc 歌词，1：lrc 格式的字符串，3：lrc 文件 url）
 
-    // 作废配置
-    AVATAR: '/avatar.png', // 作者头像，被notion中的ICON覆盖。若无ICON则取public目录下的avatar.png
-    TITLE: process.env.NEXT_PUBLIC_TITLE || 'NotionNext BLOG', // 站点标题 ，被notion中的页面标题覆盖
-    HOME_BANNER_IMAGE: './bg_image.jpg', // 首页背景大图, 会被notion中的封面图覆盖，若无封面图则会使用代码中的 /public/bg_image.jpg 文件
-    DESCRIPTION: process.env.NEXT_PUBLIC_DESCRIPTION || '这是一个由NotionNext生成的站点', // 站点描述，被notion中的页面描述覆盖
+    // ----> 评论互动 可同时开启多个支持 WALINE VALINE GISCUS CUSDIS UTTERRANCES GITALK
 
     // twikoo
     COMMENT_TWIKOO_ENV_ID: process.env.NEXT_PUBLIC_COMMENT_ENV_ID || '', // TWIKOO后端地址 腾讯云环境填envId；Vercel环境填域名，教程：https://tangly1024.com/article/notionnext-twikoo
