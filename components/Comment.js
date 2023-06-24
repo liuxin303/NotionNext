@@ -1,7 +1,7 @@
 import BLOG from '@/blog.config'
 import dynamic from 'next/dynamic'
 import Tabs from '@/components/Tabs'
-import React from 'react'
+import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 
 const WalineComponent = dynamic(
@@ -43,6 +43,12 @@ const GiscusComponent = dynamic(
   },
   { ssr: false }
 )
+const WebMentionComponent = dynamic(
+  () => {
+    return import('@/components/WebMention')
+  },
+  { ssr: false }
+)
 
 const ValineComponent = dynamic(() => import('@/components/ValineComponent'), {
   ssr: false
@@ -51,7 +57,7 @@ const ValineComponent = dynamic(() => import('@/components/ValineComponent'), {
 const Comment = ({ frontMatter }) => {
   const router = useRouter()
 
-  React.useEffect(() => {
+  useEffect(() => {
     // 跳转到评论区
     setTimeout(() => {
       if (window.location.href.indexOf('target=comment') > -1) {
@@ -99,6 +105,10 @@ const Comment = ({ frontMatter }) => {
 
         {BLOG.COMMENT_GITALK_CLIENT_ID && (<div key='GitTalk'>
           <GitalkComponent frontMatter={frontMatter}/>
+        </div>)}
+
+        {BLOG.COMMENT_WEBMENTION.ENABLE && (<div key='WebMention'>
+          <WebMentionComponent frontMatter={frontMatter} className="px-2" />
         </div>)}
       </Tabs>
     </div>
